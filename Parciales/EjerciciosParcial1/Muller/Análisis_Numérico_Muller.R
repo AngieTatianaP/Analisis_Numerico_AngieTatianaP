@@ -15,7 +15,7 @@
   # Asignamos el valor de la tolerancia
   tol <- 1e-5
   
-  # Obtenemos el n鷐ero m醲imo de iteraciones
+  # Obtenemos el n煤mero m谩ximo de iteraciones
   N <- (1/log(2))*(log(abs(x0-x1)/tol))
   h1 <- x1-x0
   h2 <- x2-x1
@@ -26,11 +26,11 @@
   cat(tol, "\n")
   iniciales <- c()
   valida <- TRUE
-  #Ciclo que se repite hasta el n鷐ero de m醲imo de iteraciones
+  #Ciclo que se repite hasta el n煤mero de m谩ximo de iteraciones
   while(valida == TRUE){
     b <- d2+h2*a
     D<-(b^2-4*(f(x2)*a))^(1/2)
-    #Validaci髇 para la asignaci髇 del E
+    #Validaci贸n para la asignaci贸n del E
     if (b > 0){E<-b+D}
     if (b < 0){E<-b-D}
     h <- 2*f(x2)/E
@@ -44,7 +44,7 @@
      break
     }
     
-    #Asignaci髇 de las variables 
+    #Asignaci贸n de las variables 
     x0 <- x1
     x1 <- x2
     x2 <- result
@@ -68,6 +68,6 @@
     cat("La convergencia es lineal")
   } else {cat("La convergencia NO es lineal")}
   
-  cat("Usando precisi髇 de la funci髇 mpfr obtenemos como resultado: \n")
+  cat("Usando precisi贸n de la funci贸n mpfr obtenemos como resultado: \n")
   mpfr(result, 500)
   
